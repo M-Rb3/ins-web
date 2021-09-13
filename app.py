@@ -15,9 +15,6 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 # you will need a secret key
 app.secret_key = 'bH9LdWff0kxs0LZL8wm3-P305XIS_xXLob1abwM3C25p'
 
-if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0')
-
 
 @app.route('/', methods=('GET', 'POST'))
 def startApp():
@@ -65,3 +62,7 @@ def predict():
 
         form.abc = roundedCharge  # this returns the response back to the front page
         return render_template('index.html', form=form)
+
+
+if __name__ == '__main__':
+    app.run()
