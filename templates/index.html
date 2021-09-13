@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+  <title>Insurance Prediction</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+
+<body>
+
+
+  <div class="bg">
+    <div class="container-content">
+      <div class="wrap-content">
+        <form class="text-center" method="POST"
+          action="/predict"> 
+         
+                  <div class="form-field form-check-inline">{{ form.age.label }} {{ form.age(size=20,class_="form-control") }}</div>
+               
+                  <div class="form-check form-check-inline">{{ form.sex.label(class_="form-check-label") }} {{ form.sex(class_='form-check-in') }}</div>
+              
+                  <div class="form-field form-check-inline">{{ form.bmi.label }} {{ form.bmi(class_="form-control") }}</div>
+           
+                  <div class="form-field form-check-inline">{{ form.children.label }} {{ form.children(class_="form-control") }}</div>
+            
+                  <div class="form-field form-check-inline">{{ form.smoker.label(class_="form-check-label") }} {{ form.smoker(class_='form-check-in') }}</div>
+              
+                  <div class="form-field form-check-inline">{{ form.region.label(class_="form-check-label") }} {{ form.region(class_="form-select") }}</div>
+           
+          <input id="submit" class='btn btn-outline-secondary' name="submit" type="submit" onclick="startSpinner()"
+            value="Predict">
+
+        </form>
+
+        <div class="d-flex justify-content-center">
+          <div id="loader" style="color:black; display: none;" class="spinner-border"></div>
+        </div>
+        <div class="output-container">
+          <div id="output">
+            <h5 id="a">Predicted Insurance Charge: </h5>
+            <h3 id="b">{{ form.abc }}$$</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+  </script>
+
+  <script>
+    window.onload = function exampleFunction() {
+
+      // var output = document.getElementById("output");
+      // output.style.display = "none"
+    }
+
+    function startSpinner() {
+      var x = document.getElementById("loader");
+      x.style.display = "block";
+      var output = document.getElementById("output");
+      output.style.display = "none"
+      setTimeout(function () {
+        var y = document.getElementById("output");
+        var x = document.getElementById("loader");
+        var a = document.getElementById("a");
+        var b = document.getElementById("b");
+        x.style.display = "none";
+        y.style.display = "block"
+        a.style.display = "block"
+        b.style.display = "block"
+      }, 3000);
+
+    }
+  </script>
+
+</body>
+
+</html>

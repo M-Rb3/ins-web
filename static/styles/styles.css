@@ -1,0 +1,120 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    height: 100%;
+}
+.bg { 
+    height: 100%;
+    background-image: url(../artificial-intelligence-2228610.jpg);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+        /* opacity: 0.7; */
+    /* overflow: hidden; */
+}
+
+.container-content {
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    /* opacity: 0.8; */
+    /* background: rgba(255,255,255,0.8); */
+}
+
+.wrap-content{
+    width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 72px 55px 65px 55px;
+    background-color: rgba(248, 248, 248, 0.74) ;
+    color: #424242 !important;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.form-check-in {
+  display: flex;
+    /* justify-content: space-between; */
+} 
+
+.form-check-in li {
+  padding: 0rem 1rem;
+}
+
+.form-check-label {
+  display: inline-block;
+  
+}
+.form-check-inline label{
+margin: auto 0;
+}
+
+.form-check-inline {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+ul {
+  list-style: none;
+}
+
+.form-control {
+  width: 70%;
+}
+input[type='radio']{
+  cursor: pointer;
+}
+
+input[type='radio']:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -4px;
+        left: -1px;
+        position: relative;
+        background-color: #ffffff;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid white;
+    }
+
+    input[type='radio']:checked:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -4px;
+        left: -1px;
+        position: relative;
+        background-color: #424242;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 2px solid #424242;
+    }
+
+.form-select {
+  width: 70%;
+}
+
+.btn {
+  color: #424242 !important;
+  border-color: #424242 !important;
+}
+.btn:hover {
+  color: #ffffff !important;
+  background-color: #424242 !important;
+}
