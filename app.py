@@ -13,7 +13,7 @@ import json
 app = Flask(__name__, instance_relative_config=False)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 # you will need a secret key
-app.secret_key = 'bH9LdWff0kxs0LZL8wm3-P305XIS_xXLob1abwM3C25p'
+app.secret_key = 'CGRUfGONNfsyz65F8e_UxkNNNDRQvEcrO_uI4o1Z74lZ'
 
 
 @app.route('/', methods=('GET', 'POST'))
@@ -27,8 +27,11 @@ def predict():
     form = PredictForm()
     if form.submit():
 
+        # token_response = requests.post('https://iam.cloud.ibm.com/identity/token', data={
+        #                                "apikey": 'bH9LdWff0kxs0LZL8wm3-P305XIS_xXLob1abwM3C25p', "grant_type": 'urn:ibm:params:oauth:grant-type:apikey'})
+
         token_response = requests.post('https://iam.cloud.ibm.com/identity/token', data={
-                                       "apikey": 'bH9LdWff0kxs0LZL8wm3-P305XIS_xXLob1abwM3C25p', "grant_type": 'urn:ibm:params:oauth:grant-type:apikey'})
+                                       "apikey": 'CGRUfGONNfsyz65F8e_UxkNNNDRQvEcrO_uI4o1Z74lZ', "grant_type": 'urn:ibm:params:oauth:grant-type:apikey'})
 
         mltoken = token_response.json()["access_token"]
         header = {'Content-Type': 'application/json', 'Authorization': 'Bearer '
@@ -47,9 +50,11 @@ def predict():
         payload_scoring = {"input_data": [{"fields": ["age", "sex", "bmi",
                                                       "children", "smoker", "region"], "values": userInput}]}
 
-        response_scoring = requests.post(
-            "https://eu-gb.ml.cloud.ibm.com/ml/v4/deployments/602a578d-1844-4b5c-957c-7f27ad888301/predictions?version=2021-09-13", json=payload_scoring, headers=header)
+        # response_scoring = requests.post(
+        # "https://eu-gb.ml.cloud.ibm.com/ml/v4/deployments/602a578d-1844-4b5c-957c-7f27ad888301/predictions?version=2021-09-13", json=payload_scoring, headers=header)
 
+        response_scoring = requests.post(
+            'https://eu-gb.ml.cloud.ibm.com/ml/v4/deployments/47346219-5dc2-4bf1-8659-d6a159aa4fd1/predictions?version=2021-09-22&version=2021-09-22', json=payload_scoring, headers=header)
         output = json.loads(response_scoring.text)
         print(output)
         for key in output:
